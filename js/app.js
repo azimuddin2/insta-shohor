@@ -1,4 +1,4 @@
-let posts=[ ];
+let posts= [];
 
 const likedPostsId = [];
 const reportedPostsId = [];
@@ -120,7 +120,7 @@ const createPost = (post) => {
                   <div class="post__description">
                     <small>
                       <a class="post__name--underline" href="#">
-                          ${post.comments?.user}
+                          ${post.comments.user}
                       </a>
                       ${post.comments?.text}
                     </small>
@@ -151,8 +151,9 @@ const displayLikedPosts = () => {
 };
 
 const displayReportedPosts = () => {
+  document.getElementById( "reported" ).innerHTML = '';
     const reportedPosts = getReportedPosts();
-    posts.forEach((post) => {
+    reportedPosts.forEach((post) => {
         const div = createPost(post);
         document.getElementById( "reported" ).appendChild(div);
     });
